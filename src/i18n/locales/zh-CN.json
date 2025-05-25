@@ -7,5 +7,9 @@
   "regexBuddyLiteDesc": "正则表达式测试与演练",
   "themeToggle": "切换主题",
   "copyright": "© 2025 Steins' 工具箱",
-  "footer": ""
+  "footer": "",
+  "jiugongge": {
+    "title": "九宫格求解",
+    "description": "九宫格在线求解工具"
+  }
 }

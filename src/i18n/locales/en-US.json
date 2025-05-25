@@ -7,5 +7,9 @@
   "regexBuddyLiteDesc": "Regex Playground & Tester",
   "themeToggle": "Toggle theme",
   "copyright": "© 2025 Steins' Toolbox",
-  "footer": ""
+  "footer": "",
+  "jiugongge": {
+    "title": "Sudoku Solver",
+    "description": "Online Sudoku Solver"
+  }
 }

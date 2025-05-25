@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Code2, Regex, GitBranch, FileText, MessageSquare, ReceiptText, Languages } from "lucide-react"
+import { Moon, Sun, Puzzle, Languages } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { useTranslation } from 'react-i18next';
 import {
@@ -33,52 +33,12 @@ export function Home() {
   const cardItems: CardItem[] = [
     {
       id: 1,
-      title: t('envLens'),
-      description: t('envLensDesc'),
+      title: t('jiugongge.title'),
+      description: t('jiugongge.description'),
       tip: "",
-      icon: <Code2 className="h-6 w-6 text-muted-foreground" />,
-      path: "/tool/1"
+      icon: <Puzzle className="h-6 w-6 text-muted-foreground" />,
+      path: "/jiugongge"
     },
-    {
-      id: 2,
-      title: t('regexBuddyLite'),
-      description: t('regexBuddyLiteDesc'),
-      tip: "",
-      icon: <Regex className="h-6 w-6 text-muted-foreground" />,
-      path: "/tool/2"
-    },
-//   {
-//     id: 3,
-//     title: "BranchForge",
-//     description: "Git Branch Name Generator",
-//     tip: "Click to access this tool",
-//     icon: <GitBranch className="h-6 w-6 text-muted-foreground" />, 
-//     path: "/tool/3"
-//   },
-//   {
-//     id: 4,
-//     title: "InvoiceFlow",
-//     description: "Simple Invoice Generator",
-//     tip: "Click to access this tool",
-//     icon: <FileText className="h-6 w-6 text-muted-foreground" />, 
-//     path: "/tool/4"
-//   },
-//   {
-//     id: 5,
-//     title: "MinuteMind",
-//     description: "Meeting Minute Taker",
-//     tip: "Click to access this tool",
-//     icon: <MessageSquare className="h-6 w-6 text-muted-foreground" />, 
-//     path: "/tool/5"
-//   },
-//   {
-//     id: 6,
-//     title: "ExpenseEase",
-//     description: "Expense Report Simplifier",
-//     tip: "Click to access this tool",
-//     icon: <ReceiptText className="h-6 w-6 text-muted-foreground" />, 
-//     path: "/tool/6"
-//   },
   ]
 
   return (

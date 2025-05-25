@@ -2,7 +2,7 @@ import {
     createBrowserRouter
 } from "react-router";
 import { Home } from "../pages/Home"
-import { ToolDetail } from "../pages/ToolDetail"
+import { JiugongSolver } from "../pages/JiugongSolver/JiugongSolver"
 
 const router = createBrowserRouter([
     {
@@ -10,8 +10,8 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/tool/:id",
-        element: <ToolDetail />,
+        path: "/jiugongge",
+        element: <JiugongSolver />,
     },
 ]);
 
