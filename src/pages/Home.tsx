@@ -10,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useEffect } from "react";
 
 interface CardItem {
   id: number
@@ -24,6 +25,10 @@ export function Home() {
   const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.title = t('title');
+  }, [t, i18n.language]);
 
   const cardItems: CardItem[] = [
     {
@@ -77,7 +82,7 @@ export function Home() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-background">
+    <div className="min-h-screen flex flex-col justify-between bg-slate-100 dark:bg-background">
       <div className="pt-12 pb-8 px-2">
         <div className="flex justify-end mb-4 gap-2">
           <DropdownMenu>
@@ -85,22 +90,23 @@ export function Home() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="bg-transparent hover:bg-muted/50 shadow-none border-none focus:outline-none focus:ring-0"
+                className="bg-transparent hover:bg-muted/100 shadow-none border-none focus:outline-none focus:ring-0"
+                style={{ boxShadow: 'none', outline: 'none' }}
                 aria-label={t('language')}
               >
                 <Languages className="h-[1.2rem] w-[1.2rem]" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-slate-50 dark:bg-background">
               <DropdownMenuItem
                 onClick={() => i18n.changeLanguage('en')}
-                className={i18n.language === 'en' ? 'font-bold' : ''}
+                className={`bg-slate-50 dark:bg-background ${i18n.language === 'en' ? 'font-bold' : ''}`}
               >
                 English {i18n.language === 'en' && <span className="ml-2">✓</span>}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => i18n.changeLanguage('zh')}
-                className={i18n.language === 'zh' ? 'font-bold' : ''}
+                className={`bg-slate-50 dark:bg-background ${i18n.language === 'zh' ? 'font-bold' : ''}`}
               >
                 简体中文 {i18n.language === 'zh' && <span className="ml-2">✓</span>}
               </DropdownMenuItem>
@@ -109,7 +115,8 @@ export function Home() {
           <Button
             variant="ghost"
             size="icon"
-            className="bg-transparent hover:bg-muted/50 shadow-none border-none focus:outline-none focus:ring-0"
+            className="bg-transparent hover:bg-muted/100 shadow-none border-none focus:outline-none focus:ring-0"
+            style={{ boxShadow: 'none', outline: 'none' }}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label={t('themeToggle')}
           >
@@ -124,7 +131,7 @@ export function Home() {
           {cardItems.map((item) => (
             <Card 
               key={item.id} 
-              className="cursor-pointer hover:shadow-lg transition-shadow h-full"
+              className="cursor-pointer hover:shadow-lg transition-shadow h-full bg-slate-50 dark:bg-background"
               onClick={() => navigate(item.path)}
             >
               <CardHeader className="flex flex-row items-center gap-3 pb-2">

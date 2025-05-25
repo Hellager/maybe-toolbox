@@ -1,11 +1,11 @@
 {
-  "title": "Dev & Office Toolbox",
-  "subtitle": "A suite of productivity tools for developers and office professionals",
+  "title": "Maybe Useful Toolbox",
+  "subtitle": "Maybe useful, maybe not",
   "envLens": "EnvLens",
   "envLensDesc": "Environment Variable Inspector",
   "regexBuddyLite": "RegexBuddyLite",
   "regexBuddyLiteDesc": "Regex Playground & Tester",
   "themeToggle": "Toggle theme",
-  "copyright": "© 2025 Dev & Office Toolbox",
-  "footer": "Like this? Contribute to growth! AI-IT Inc • SMS: 863-338-2669"
+  "copyright": "© 2025 Steins' Toolbox",
+  "footer": ""
 }
