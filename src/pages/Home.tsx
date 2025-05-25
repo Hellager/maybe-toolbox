@@ -18,7 +18,7 @@ const cardItems: CardItem[] = [
     id: 1,
     title: "EnvLens",
     description: "Environment Variable Inspector",
-    tip: "Click to access this tool",
+    tip: "",
     icon: <Code2 className="h-6 w-6 text-muted-foreground" />, 
     path: "/tool/1"
   },
@@ -26,7 +26,7 @@ const cardItems: CardItem[] = [
     id: 2,
     title: "RegexBuddyLite",
     description: "Regex Playground & Tester",
-    tip: "Click to access this tool",
+    tip: "",
     icon: <Regex className="h-6 w-6 text-muted-foreground" />, 
     path: "/tool/2"
   },
