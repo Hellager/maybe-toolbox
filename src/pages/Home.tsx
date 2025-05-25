@@ -1,5 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useNavigate } from "react-router";
+import { Button } from "@/components/ui/button"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "@/components/theme-provider"
 
 interface CardItem {
   id: number
@@ -31,10 +34,22 @@ const cardItems: CardItem[] = [
 
 export function Home() {
   const navigate = useNavigate()
+  const { theme, setTheme } = useTheme()
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">工具箱</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">工具箱</h1>
+        <Button 
+          variant="outline" 
+          size="icon"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        >
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">切换主题</span>
+        </Button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {cardItems.map((item) => (
           <Card 
