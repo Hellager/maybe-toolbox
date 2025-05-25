@@ -30,38 +30,38 @@ const cardItems: CardItem[] = [
     icon: <Regex className="h-6 w-6 text-muted-foreground" />, 
     path: "/tool/2"
   },
-  {
-    id: 3,
-    title: "BranchForge",
-    description: "Git Branch Name Generator",
-    tip: "Click to access this tool",
-    icon: <GitBranch className="h-6 w-6 text-muted-foreground" />, 
-    path: "/tool/3"
-  },
-  {
-    id: 4,
-    title: "InvoiceFlow",
-    description: "Simple Invoice Generator",
-    tip: "Click to access this tool",
-    icon: <FileText className="h-6 w-6 text-muted-foreground" />, 
-    path: "/tool/4"
-  },
-  {
-    id: 5,
-    title: "MinuteMind",
-    description: "Meeting Minute Taker",
-    tip: "Click to access this tool",
-    icon: <MessageSquare className="h-6 w-6 text-muted-foreground" />, 
-    path: "/tool/5"
-  },
-  {
-    id: 6,
-    title: "ExpenseEase",
-    description: "Expense Report Simplifier",
-    tip: "Click to access this tool",
-    icon: <ReceiptText className="h-6 w-6 text-muted-foreground" />, 
-    path: "/tool/6"
-  },
+//   {
+//     id: 3,
+//     title: "BranchForge",
+//     description: "Git Branch Name Generator",
+//     tip: "Click to access this tool",
+//     icon: <GitBranch className="h-6 w-6 text-muted-foreground" />, 
+//     path: "/tool/3"
+//   },
+//   {
+//     id: 4,
+//     title: "InvoiceFlow",
+//     description: "Simple Invoice Generator",
+//     tip: "Click to access this tool",
+//     icon: <FileText className="h-6 w-6 text-muted-foreground" />, 
+//     path: "/tool/4"
+//   },
+//   {
+//     id: 5,
+//     title: "MinuteMind",
+//     description: "Meeting Minute Taker",
+//     tip: "Click to access this tool",
+//     icon: <MessageSquare className="h-6 w-6 text-muted-foreground" />, 
+//     path: "/tool/5"
+//   },
+//   {
+//     id: 6,
+//     title: "ExpenseEase",
+//     description: "Expense Report Simplifier",
+//     tip: "Click to access this tool",
+//     icon: <ReceiptText className="h-6 w-6 text-muted-foreground" />, 
+//     path: "/tool/6"
+//   },
 ]
 
 export function Home() {
@@ -72,9 +72,10 @@ export function Home() {
     <div className="min-h-screen flex flex-col justify-between bg-background">
       <div className="pt-12 pb-8 px-2">
         <div className="flex justify-end mb-4">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="ghost"
             size="icon"
+            className="bg-transparent hover:bg-muted/50 shadow-none border-none"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="切换主题"
           >
