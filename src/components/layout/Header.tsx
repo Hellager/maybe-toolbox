@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Moon, Sun, Languages } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { useTranslation } from 'react-i18next'
+import { useHeader } from "@/contexts/HeaderContext"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,16 +13,17 @@ import {
 export function Header() {
   const { theme, setTheme } = useTheme()
   const { t, i18n } = useTranslation()
+  const { title, subtitle } = useHeader()
 
   return (
     <header className="w-full py-6 px-4 border-b">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-4">
           <div className="text-center flex-1">
-            <h1 className="text-4xl font-extrabold mb-2">{t('title')}</h1>
-            <p className="text-muted-foreground text-lg">{t('subtitle')}</p>
+            <h1 className="text-4xl font-extrabold mb-2">{title || t('title')}</h1>
+            <p className="text-muted-foreground text-lg">{subtitle || t('subtitle')}</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button

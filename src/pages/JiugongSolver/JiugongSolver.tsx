@@ -1,9 +1,19 @@
 import { useParams, useNavigate } from "react-router";
 import { Button } from "@/components/ui/button"
 import { useTranslation } from 'react-i18next'
+import { useHeader } from "@/contexts/HeaderContext"
+import { useEffect } from "react"
 
 export function JiugongSolver() {
   const { t } = useTranslation()
+  const { setHeader } = useHeader()
+
+  useEffect(() => {
+    setHeader(
+      t('jiugongge.title'),
+      t('jiugongge.description')
+    )
+  }, [t, setHeader])
 
   return (
     <div className="flex-1 flex items-center justify-center py-16">

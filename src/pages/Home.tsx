@@ -2,6 +2,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useNavigate } from "react-router"
 import { Puzzle } from "lucide-react"
 import { useTranslation } from 'react-i18next'
+import { useHeader } from "@/contexts/HeaderContext"
+import { useEffect } from "react"
 
 interface CardItem {
   id: number
@@ -15,6 +17,11 @@ interface CardItem {
 export function HomeContent() {
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { setHeader } = useHeader()
+
+  useEffect(() => {
+    setHeader(t('title'), t('subtitle'))
+  }, [t, setHeader])
 
   const cardItems: CardItem[] = [
     {

@@ -1,10 +1,12 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router"
 import { useTranslation } from 'react-i18next'
 import { useEffect } from "react"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
-import { RouterProvider } from "react-router";
 import { ThemeProvider } from "@/components/theme-provider"
-import router from "./router";
+import { HeaderProvider } from "@/contexts/HeaderContext"
+import { HomeContent } from "./pages/Home"
+import { JiugongSolver } from "./pages/JiugongSolver/JiugongSolver"
 
 function App() {
   const { t } = useTranslation()
@@ -15,15 +17,22 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-background">
-          <Header />
-          <main className="flex-1 py-8 px-4">
-          <div className="max-w-6xl mx-auto">
-            <RouterProvider router={router} />
+      <HeaderProvider>
+        <Router>
+          <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-background">
+            <Header />
+            <main className="flex-1 py-8 px-4">
+              <div className="max-w-6xl mx-auto">
+                <Routes>
+                  <Route path="/" element={<HomeContent />} />
+                  <Route path="/jiugongge" element={<JiugongSolver />} />
+                </Routes>
+              </div>
+            </main>
+            <Footer />
           </div>
-        </main>
-        <Footer />
-      </div>
+        </Router>
+      </HeaderProvider>
     </ThemeProvider>
   )
 }
