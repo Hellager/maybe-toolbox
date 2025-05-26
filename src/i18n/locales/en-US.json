@@ -1,6 +1,7 @@
 {
   "title": "Maybe Useful Toolbox",
   "subtitle": "Maybe useful, maybe not",
+  "language": "Language",
   "envLens": "EnvLens",
   "envLensDesc": "Environment Variable Inspector",
   "regexBuddyLite": "RegexBuddyLite",

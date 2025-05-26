@@ -1,13 +1,13 @@
 import {
     createBrowserRouter
 } from "react-router";
-import { Home } from "../pages/Home"
+import { HomeContent } from "../pages/Home"
 import { JiugongSolver } from "../pages/JiugongSolver/JiugongSolver"
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: <HomeContent />,
     },
     {
         path: "/jiugongge",

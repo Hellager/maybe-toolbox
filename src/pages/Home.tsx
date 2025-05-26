@@ -1,16 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { useNavigate } from "react-router";
-import { Button } from "@/components/ui/button"
-import { Moon, Sun, Puzzle, Languages } from "lucide-react"
-import { useTheme } from "@/components/theme-provider"
-import { useTranslation } from 'react-i18next';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useEffect } from "react";
+import { useNavigate } from "react-router"
+import { Puzzle } from "lucide-react"
+import { useTranslation } from 'react-i18next'
 
 interface CardItem {
   id: number
@@ -21,14 +12,9 @@ interface CardItem {
   path: string
 }
 
-export function Home() {
+export function HomeContent() {
   const navigate = useNavigate()
-  const { theme, setTheme } = useTheme()
-  const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    document.title = t('title');
-  }, [t, i18n.language]);
+  const { t } = useTranslation()
 
   const cardItems: CardItem[] = [
     {
@@ -38,87 +24,27 @@ export function Home() {
       tip: "",
       icon: <Puzzle className="h-6 w-6 text-muted-foreground" />,
       path: "/jiugongge"
-    },
+    }
   ]
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-slate-100 dark:bg-background">
-      <div className="pt-12 pb-8 px-2">
-        <div className="flex justify-end mb-4 gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="bg-transparent hover:bg-muted/100 shadow-none border-none focus:outline-none focus:ring-0"
-                style={{ boxShadow: 'none', outline: 'none' }}
-                aria-label={t('language')}
-              >
-                <Languages className="h-[1.2rem] w-[1.2rem]" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-slate-50 dark:bg-background">
-              <DropdownMenuItem
-                onClick={() => i18n.changeLanguage('en')}
-                className={`bg-slate-50 dark:bg-background ${i18n.language === 'en' ? 'font-bold' : ''}`}
-              >
-                English {i18n.language === 'en' && <span className="ml-2">✓</span>}
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => i18n.changeLanguage('zh')}
-                className={`bg-slate-50 dark:bg-background ${i18n.language === 'zh' ? 'font-bold' : ''}`}
-              >
-                简体中文 {i18n.language === 'zh' && <span className="ml-2">✓</span>}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="bg-transparent hover:bg-muted/100 shadow-none border-none focus:outline-none focus:ring-0"
-            style={{ boxShadow: 'none', outline: 'none' }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label={t('themeToggle')}
-          >
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">{t('themeToggle')}</span>
-          </Button>
-        </div>
-        <h1 className="text-5xl font-extrabold text-center mb-2">{t('title')}</h1>
-        <p className="text-center text-muted-foreground text-lg mb-10">{t('subtitle')}</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {cardItems.map((item) => (
-            <Card 
-              key={item.id} 
-              className="cursor-pointer hover:shadow-lg transition-shadow h-full bg-slate-50 dark:bg-background"
-              onClick={() => navigate(item.path)}
-            >
-              <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                <div>{item.icon}</div>
-                <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="pb-2">
-                <CardDescription className="text-base text-muted-foreground mb-1">{item.description}</CardDescription>
-                {item.tip && <div className="text-xs text-gray-400 dark:text-gray-500">{item.tip}</div>}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-      <footer className="w-full text-center text-xs text-muted-foreground py-6 border-t mt-10">
-        <div className="mb-1">{t('copyright')}</div>
-        <div>
-          <a
-            href="https://beian.miit.gov.cn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            苏ICP备2022029029号
-          </a>
-        </div>
-      </footer>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cardItems.map((item) => (
+        <Card 
+          key={item.id} 
+          className="cursor-pointer hover:shadow-lg transition-shadow h-full bg-slate-50 dark:bg-background"
+          onClick={() => navigate(item.path)}
+        >
+          <CardHeader className="flex flex-row items-center gap-3 pb-2">
+            <div>{item.icon}</div>
+            <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
+          </CardHeader>
+          <CardContent className="pb-2">
+            <CardDescription className="text-base text-muted-foreground mb-1">{item.description}</CardDescription>
+            {item.tip && <div className="text-xs text-gray-400 dark:text-gray-500">{item.tip}</div>}
+          </CardContent>
+        </Card>
+      ))}
     </div>
   )
-} 
+}

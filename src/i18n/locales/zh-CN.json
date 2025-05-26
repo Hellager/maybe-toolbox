@@ -1,6 +1,7 @@
 {
   "title": "也许有用工具箱",
   "subtitle": "可能是有用的，是有用的不太可能",
+  "language": "语言",
   "envLens": "环境变量透视",
   "envLensDesc": "环境变量检查工具",
   "regexBuddyLite": "正则助手",
