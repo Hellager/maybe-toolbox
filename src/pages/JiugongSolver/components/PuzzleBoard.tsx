@@ -169,7 +169,7 @@ export function PuzzleBoard({ state, onMove, disabled = false, className, custom
                 "flex items-center justify-center text-2xl font-bold select-none border border-border disabled:cursor-not-allowed rounded-none shadow-none",
                 "w-full h-full",
                 customMode ? "cursor-pointer hover:bg-accent" : "cursor-default",
-                highlightCell === (cell.row * 3 + cell.col) ? "bg-accent border-accent-foreground shadow-sm" : ""
+                highlightCell === (cell.row * 3 + cell.col) ?  "bg-gray-50 border-blue-400 shadow-sm" : ""
               )}
               style={{
                 position: 'absolute',
@@ -202,7 +202,7 @@ export function PuzzleBoard({ state, onMove, disabled = false, className, custom
               "disabled:cursor-not-allowed rounded-none shadow-none",
               cellAnimations[cell.value] && "animate__animated",
               cellAnimations[cell.value],
-              highlightCell === (cell.row * 3 + cell.col) ? "bg-accent border-accent-foreground shadow-sm" : "",
+              highlightCell === (cell.row * 3 + cell.col) ? "bg-gray-50 border-blue-400 shadow-sm" : "",
               "bg-transparent"
             )}
             style={{
