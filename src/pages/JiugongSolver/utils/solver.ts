@@ -22,11 +22,11 @@ interface SearchResult {
   timeUsed?: number;
 }
 
-interface SearchNode {
-  state: PuzzleState;
-  g: number;
-  move?: string;
-}
+// interface SearchNode {
+//   state: PuzzleState;
+//   g: number;
+//   move?: string;
+// }
 
 export function aStar(initial: PuzzleState, goal: PuzzleState): Solution | null {
   const startTime = Date.now();
@@ -70,8 +70,8 @@ export function aStar(initial: PuzzleState, goal: PuzzleState): Solution | null 
   const applyMove = (state: PuzzleState, move: string): PuzzleState => {
     const newState = [...state];
     const blankPos = getBlankPosition(state);
-    const blankRow = Math.floor(blankPos / 3);
-    const blankCol = blankPos % 3;
+    // const blankRow = Math.floor(blankPos / 3);
+    // const blankCol = blankPos % 3;
 
     let newPos = blankPos;
     switch (move) {

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import type { PuzzleState } from '../types/puzzle';
 import { isValidMove, moveNumber } from '../utils/puzzle';
 import { cn } from '@/lib/utils';
-import 'animate.css';
 
 interface PuzzleBoardProps {
   state: PuzzleState;
@@ -12,7 +11,6 @@ interface PuzzleBoardProps {
   customMode?: boolean;
   onCustomInput?: (row: number, col: number) => void;
   highlightCell?: number;
-  tileImages?: string[];
   imageData?: {
     src: string;
     tileSize: number;
@@ -24,7 +22,7 @@ const SIZE = 3;
 const CELL_SIZE = 64; // px
 const BORDER_WIDTH = 1;
 
-export function PuzzleBoard({ state, onMove, disabled = false, className, customMode = false, onCustomInput, highlightCell, tileImages, imageData }: PuzzleBoardProps) {
+export function PuzzleBoard({ state, onMove, disabled = false, className, customMode = false, onCustomInput, highlightCell, imageData }: PuzzleBoardProps) {
   const [activeCell, setActiveCell] = useState<{row: number, col: number} | null>(null);
   const [cellAnimations, setCellAnimations] = useState<Record<string, string>>({});
   const canvasRefs = useRef<(HTMLCanvasElement | null)[]>(Array(9).fill(null));
@@ -71,13 +69,13 @@ export function PuzzleBoard({ state, onMove, disabled = false, className, custom
     }
   }, [imageData, state, customMode]);
 
-  const getAnimationClass = (prevRow: number, prevCol: number, newRow: number, newCol: number) => {
-    if (newRow > prevRow) return 'animate__slideInDown animate__faster';
-    if (newRow < prevRow) return 'animate__slideInUp animate__faster';
-    if (newCol > prevCol) return 'animate__slideInLeft animate__faster';
-    if (newCol < prevCol) return 'animate__slideInRight animate__faster';
-    return '';
-  };
+  // const getAnimationClass = (prevRow: number, prevCol: number, newRow: number, newCol: number) => {
+  //   if (newRow > prevRow) return 'animate__slideInDown animate__faster';
+  //   if (newRow < prevRow) return 'animate__slideInUp animate__faster';
+  //   if (newCol > prevCol) return 'animate__slideInLeft animate__faster';
+  //   if (newCol < prevCol) return 'animate__slideInRight animate__faster';
+  //   return '';
+  // };
 
   const handleClick = (row: number, col: number) => {
     if (disabled) return;
@@ -86,23 +84,10 @@ export function PuzzleBoard({ state, onMove, disabled = false, className, custom
       onCustomInput(row, col);
       return;
     }
-    // if (isValidMove(state, row, col)) {
-    //   const newState = moveNumber(state, row, col);
-    //   // 设置动画
-    //   const newAnimations: Record<string, string> = {};
-    //   cells.forEach(cell => {
-    //     if (cell.value !== null && cell.value !== 0) {
-    //       const newIndex = newState.indexOf(cell.value!);
-    //       const newRow = Math.floor(newIndex / SIZE);
-    //       const newCol = newIndex % SIZE;
-    //       if (newRow !== cell.row || newCol !== cell.col) {
-    //         newAnimations[cell.value!] = getAnimationClass(cell.row, cell.col, newRow, newCol);
-    //       }
-    //     }
-    //   });
-    //   setCellAnimations(newAnimations);
-    //   onMove(newState);
-    // }
+    if (isValidMove(state, row, col)) {
+      const newState = moveNumber(state, row, col);
+      onMove(newState);
+    }
   };
 
   // 清除动画

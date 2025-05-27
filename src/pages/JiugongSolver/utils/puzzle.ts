@@ -1,12 +1,5 @@
 import type { Position, PuzzleState, PuzzleStats } from '../types/puzzle';
 
-// 开发模式下的日志打印
-const devLog = (...args: any[]) => {
-  if (import.meta.env.DEV) {
-    console.log(...args);
-  }
-};
-
 // 计算逆序数
 export function calculateInversionCount(state: PuzzleState): number {
   const arr = state.filter((x): x is number => x !== 0 && x !== null); // 不考虑0和null

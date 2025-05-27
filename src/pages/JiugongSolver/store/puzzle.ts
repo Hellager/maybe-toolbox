@@ -79,7 +79,7 @@ export const usePuzzleStore = create<PuzzleStore>((set, get) => ({
             // 提取数字部分
             const numbers = step.slice(0, 9) as number[];
             // 创建新的 tiles 数组
-            const newTiles = numbers.map((num, index) => {
+            const newTiles = numbers.map(num => {
               // 找到这个数字在初始状态中的位置
               const originalIndex = solution.steps[0].indexOf(num);
               // 使用初始位置对应的图片

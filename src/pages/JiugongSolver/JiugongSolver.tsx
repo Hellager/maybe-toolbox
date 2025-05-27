@@ -1,4 +1,3 @@
-import { useParams, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 import { useHeader } from "@/contexts/HeaderContext"
 import { useEffect, useState, useRef } from 'react'
@@ -8,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
-import { cn } from "@/lib/utils"
 import type { PuzzleState } from './types/puzzle'
 
 const emptyBoard = () => Array(9).fill(null);
@@ -19,8 +17,6 @@ export function JiugongSolver() {
   const { setHeader } = useHeader()
   const {
     initial,
-    current,
-    goal,
     solution,
     isSolving,
     stats,
@@ -39,7 +35,6 @@ export function JiugongSolver() {
   const [customBoard, setCustomBoard] = useState<(number|null)[]>(emptyBoard());
   const [customStep, setCustomStep] = useState(1); // 1-9
   const [awaitBlank, setAwaitBlank] = useState(false);
-  const [imageTiles, setImageTiles] = useState<string[]>([]);
 
   useEffect(() => {
     setHeader(
@@ -58,7 +53,6 @@ export function JiugongSolver() {
     setCustomBoard(emptyBoard());
     setCustomStep(1);
     setAwaitBlank(false);
-    setImageTiles([]);
     // 清空文件输入框的值
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -190,7 +184,6 @@ export function JiugongSolver() {
         }
       }
 
-      setImageTiles([]); // 清除旧的图片切片
       setCustomizing('initial');
       setCustomBoard(Array(9).fill(null));
       setCustomStep(1);
