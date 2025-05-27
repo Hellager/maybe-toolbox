@@ -1,54 +1,112 @@
-# React + TypeScript + Vite
+# Maybe Toolbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[English](README.md) | [中文](README.cn.md)
 
-Currently, two official plugins are available:
+A toolbox application built with React + TypeScript + Vite, providing various utility tools.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🎨 Modern UI design based on shadcn/ui
+- 🌓 Light/Dark theme support
+- 🌐 Internationalization (i18n) support
+- 🧩 Modular design, easy to extend
+- 🚀 Fast development experience with Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Implemented Tools
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Jiugongge Solver
+- Custom initial and target state support
+- Custom image puzzle support
+- Real-time solution steps and state information
+- Automatic solvability check and step estimation
+- Step replay and navigation support
+
+## Tech Stack
+
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **UI Components**: shadcn/ui
+- **State Management**: Zustand
+- **Routing**: React Router
+- **Internationalization**: i18next
+- **Styling**: Tailwind CSS
+- **Theming**: next-themes
+
+## Development Setup
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/toolbox.git
+cd toolbox
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies
+```bash
+npm install
 ```
+
+3. Start development server
+```bash
+npm run dev
+```
+
+4. Build for production
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Shared components
+│   └── ui/        # UI component library
+├── contexts/      # React contexts
+├── i18n/          # Internationalization config
+├── lib/           # Utility functions
+├── pages/         # Page components
+│   └── JiugongSolver/  # Jiugongge Solver
+│       ├── components/ # Components
+│       ├── store/     # State management
+│       ├── types/     # Type definitions
+│       └── utils/     # Utility functions
+└── App.tsx        # Application entry
+```
+
+## Development Guide
+
+### Adding New Tools
+
+1. Create a new tool directory under `src/pages`
+2. Add corresponding translations in `src/i18n/locales`
+3. Add tool card in `src/pages/Home.tsx`
+4. Add tool route in routing configuration
+
+### Theme Customization
+
+The project uses shadcn/ui's theming system. You can customize the theme by modifying components under `src/components/ui`.
+
+### Internationalization
+
+- Translation files are located in `src/i18n/locales`
+- Use `useTranslation` hook for translations
+- Support dynamic language switching
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) - Excellent UI component library
+- [Vite](https://vitejs.dev/) - Modern frontend build tool
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
