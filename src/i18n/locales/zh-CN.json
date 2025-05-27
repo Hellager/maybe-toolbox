@@ -11,6 +11,24 @@
   "footer": "",
   "jiugongge": {
     "title": "九宫格求解",
-    "description": "九宫格在线求解工具"
+    "description": "九宫格在线求解工具",
+    "initial_state": "初始状态",
+    "goal_state": "目标状态",
+    "solution_steps": "解题步骤",
+    "start_solve": "开始求解",
+    "solving": "求解中...",
+    "custom_state": "自定义状态",
+    "custom_image": "自定义图片",
+    "reset": "重置",
+    "total_steps": "总步数",
+    "explored_nodes": "探索节点数",
+    "prev_step": "上一步",
+    "next_step": "下一步",
+    "inversion_count": "逆序数",
+    "solvability": "可解性",
+    "solvable": "可解",
+    "unsolvable": "不可解",
+    "estimated_steps": "预计步数",
+    "no_solution": "暂无解法"
   }
 }

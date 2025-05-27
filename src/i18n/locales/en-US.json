@@ -11,6 +11,24 @@
   "footer": "",
   "jiugongge": {
     "title": "Sudoku Solver",
-    "description": "Online Sudoku Solver"
+    "description": "Online Sudoku Solver",
+    "initial_state": "Initial State",
+    "goal_state": "Goal State",
+    "solution_steps": "Solution Steps",
+    "start_solve": "Start Solving",
+    "solving": "Solving...",
+    "custom_state": "Custom State",
+    "custom_image": "Custom Image",
+    "reset": "Reset",
+    "total_steps": "Total Steps",
+    "explored_nodes": "Explored Nodes",
+    "prev_step": "Previous",
+    "next_step": "Next",
+    "inversion_count": "Inversion Count",
+    "solvability": "Solvability",
+    "solvable": "Solvable",
+    "unsolvable": "Unsolvable",
+    "estimated_steps": "Estimated Steps",
+    "no_solution": "No solution yet"
   }
 }
