@@ -1,0 +1,46 @@
+name: Deploy to Tencent Cloud
+
+on:
+  push:
+    tags:
+        - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.TENCENT_CLOUD_HOST }}
+          username: lighthouse
+          key: ${{ secrets.TENCENT_CLOUD_SSH_KEY }}
+          source: "dist/*"
+          target: "/home/lighthouse/www/toolbox"
+          strip_components: 1
+          rm: true
+
+      - name: Set permissions
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TENCENT_CLOUD_HOST }}
+          username: lighthouse
+          key: ${{ secrets.TENCENT_CLOUD_SSH_KEY }}
+          script: |
+            chmod -R 755 /home/lighthouse/www/toolbox 
