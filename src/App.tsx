@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { HeaderProvider } from "@/contexts/HeaderContext"
 import { HomeContent } from "./pages/Home"
 import { JiugongSolver } from "./pages/JiugongSolver/JiugongSolver"
+import { NotFound } from "./pages/NotFound"
 
 function App() {
   const { t } = useTranslation()
@@ -19,13 +20,14 @@ function App() {
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <HeaderProvider>
         <Router>
-          <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-background">
+          <div className="min-h-screen flex flex-col bg-slate-200 dark:bg-background">
             <Header />
             <main className="flex-1 py-8 px-4">
               <div className="max-w-6xl mx-auto">
                 <Routes>
                   <Route path="/" element={<HomeContent />} />
                   <Route path="/jiugongge" element={<JiugongSolver />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
             </main>

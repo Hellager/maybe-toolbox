@@ -39,7 +39,7 @@ export function HomeContent() {
       {cardItems.map((item) => (
         <Card 
           key={item.id} 
-          className="cursor-pointer hover:shadow-lg transition-shadow h-full bg-slate-50 dark:bg-background"
+          className="cursor-pointer hover:shadow-lg transition-shadow h-full bg-slate-100 dark:bg-background"
           onClick={() => navigate(item.path)}
         >
           <CardHeader className="flex flex-row items-center gap-3 pb-2">

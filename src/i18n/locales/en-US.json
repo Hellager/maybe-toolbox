@@ -9,6 +9,12 @@
   "themeToggle": "Toggle theme",
   "copyright": "© 2025 Steins' Toolbox",
   "footer": "",
+  "notFound": {
+    "title": "This can be",
+    "description": "",
+    "content": "This can not be",
+    "backHome": "Back to Home"
+  },
   "jiugongge": {
     "title": "Sudoku Solver",
     "description": "Online Sudoku Solver",
